@@ -19,7 +19,8 @@ Things to try, one line each, marked EDIT ME:
 After the verdict, the model is offered the formulations the code has and
 asked to pick one for the next run. Code reruns with its choice and asks
 again. The choice is limited to that list: it cannot name an element we do
-not have.
+not have. Then one last question, text only: is that element inf-sup
+stable? Run it more than once before you trust the answer.
 
 Needs the package installed (pip install -e .) and GEMINI_API_KEY.
 """
@@ -136,6 +137,13 @@ def choose_formulation(png_bytes):
     return picked, answer
 
 
+# ---- 5. One more question, no picture --------------------------------------
+
+THEORY = ("The rerun used an 8-node hexahedron with mean-dilatation B-bar for a nearly "
+          "incompressible material. Is that element inf-sup stable? Answer yes or no "
+          "first, then explain in three sentences.")
+
+
 # ---- API connection and running the exercise ------------------------------
 
 MODEL = "gemini-2.5-flash"
@@ -231,6 +239,11 @@ def main():
         answer_after = ask_with_image(REVIEWER, QUESTION, png_after)
         print("  " + answer_after.replace("\n", "\n  "))
         print(f"  named a spurious pattern: {'yes' if flagged(answer_after) else 'no'}")
+
+    # Step 5: a theory question, no picture. The same text call as step 1.
+    print("\n== one more question ==")
+    print("  given: " + THEORY)
+    print("  model: " + ask(REVIEWER, THEORY).replace("\n", "\n  "))
 
 
 # Start the exercise when this file is run, but not when imported by tests.
