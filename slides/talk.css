@@ -15,3 +15,11 @@
 /* Slides with the QR floated at the right: let lists wrap beside it instead of
    dropping below it (Reveal lists are inline-block by default). */
 .reveal section.qr-beside ol, .reveal section.qr-beside ul { display: block; }
+
+/* Acknowledgment footnote on the title slide. Absolute relative to the title
+   section's box, which ends just below the QR block. */
+#title-slide::before {
+  content: "Funded by an SBIR. Much of this work was in collaboration with Nat Trask, Yuri Bazilevs, and Kurtis Ford.";
+  position: absolute; left: 40px; bottom: -110px; width: 1400px; text-align: left;
+  font-size: 20px; color: #666;
+}
