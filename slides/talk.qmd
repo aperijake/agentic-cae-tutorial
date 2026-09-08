@@ -573,6 +573,7 @@ One script. Solve, snapshot the pressure field, send the picture, ask.
 4. `AVERAGED = True`. The plot you would normally make. `python look.py --runs 5`. Count.
 5. Change `QUESTION`. Run five times. Count again.
 6. After the verdict it is offered `full` and `bbar` and asked to pick. It picks, code reruns, it looks again.
+7. Last question, no picture: is B-bar hex8 inf-sup stable? Four runs in six today said no, with the Q1/P0 argument. The others said yes.
 
 ## From observation to evidence
 
