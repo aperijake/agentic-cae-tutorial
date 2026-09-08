@@ -1,0 +1,220 @@
+/**
+ * Aperi CMC theme for reveal.js
+ *
+ * Matches the PowerPoint template styling:
+ * - Red accent color with gradient effects
+ * - Clean white background
+ * - Aptos/system sans-serif fonts
+ */
+
+/*-- scss:defaults --*/
+
+// Colors extracted from aperi.pptx theme
+$aperi-red: #CC0000;
+$aperi-red-light: #FF0000;
+$aperi-red-dark: #990000;
+$aperi-blue: #4472C4;
+$aperi-orange: #ED7D31;
+$aperi-gray: #A5A5A5;
+$aperi-gold: #FFC000;
+$aperi-text: #000000;
+$aperi-text-light: #44546A;
+$aperi-background: #FFFFFF;
+$aperi-link: #0563C1;
+
+// Base settings
+$backgroundColor: $aperi-background;
+$mainColor: $aperi-text;
+$headingColor: $aperi-text;
+$linkColor: $aperi-link;
+$linkColorHover: lighten($aperi-link, 15%);
+$selectionBackgroundColor: rgba($aperi-red, 0.3);
+
+// Typography - Aptos with fallbacks (Aptos is Microsoft-only)
+$mainFont: "Aptos", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headingFont: "Aptos Display", "Aptos", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$codeFont: "Cascadia Code", "Fira Code", "Consolas", monospace;
+
+// Font sizes
+$mainFontSize: 32px;
+$heading1Size: 2.2em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+// Heading settings
+$headingMargin: 0 0 0.5em 0;
+$headingLineHeight: 1.2;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+
+/*-- scss:rules --*/
+
+// Title slide styling - mimics the red banner from PowerPoint
+.reveal .slides section.title-slide,
+.reveal .slides section#title-slide {
+  // Banner container with logo
+  h1, h2.title, .title {
+    position: relative;
+    color: $aperi-background;
+    background: linear-gradient(90deg, $aperi-red-dark 0%, $aperi-red 50%, $aperi-red-light 100%);
+    padding: 0.5em 1em;
+    padding-left: 180px; // Make room for logo
+    margin-left: -1em;
+    margin-right: -1em;
+    border-radius: 0;
+  }
+
+  // Logo in the title banner
+  h1::before, h2.title::before, .title::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    height: 120px;
+    background-image: var(--slide-logo-url, url("aperi-logo.png"));
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .subtitle, p.subtitle {
+    color: $aperi-text-light;
+    font-size: 1.2em;
+    margin-top: 1em;
+  }
+
+  .author, p.author {
+    color: $aperi-text;
+    font-size: 1em;
+    margin-top: 2em;
+  }
+
+  .date, p.date {
+    color: $aperi-gray;
+    font-size: 0.9em;
+  }
+}
+
+// Section header slides
+.reveal .slides section.section-header {
+  h2 {
+    color: $aperi-red;
+    border-bottom: 3px solid $aperi-red;
+    padding-bottom: 0.3em;
+  }
+}
+
+// Regular slide styling
+.reveal .slides section {
+  text-align: left;
+
+  h2 {
+    color: $aperi-text;
+    border-bottom: 2px solid $aperi-red;
+    padding-bottom: 0.2em;
+    margin-bottom: 0.5em;
+  }
+}
+
+// Lists
+.reveal ul, .reveal ol {
+  margin-left: 1em;
+}
+
+.reveal ul li, .reveal ol li {
+  margin-bottom: 0.4em;
+  line-height: 1.4;
+}
+
+.reveal ul li::marker {
+  color: $aperi-red;
+}
+
+// Strong/bold text
+.reveal strong, .reveal b {
+  color: $aperi-text;
+  font-weight: 700;
+}
+
+// Emphasis
+.reveal em, .reveal i {
+  color: $aperi-text-light;
+}
+
+// Tables - match PowerPoint styling
+.reveal table {
+  border-collapse: collapse;
+  margin: 1em auto;
+}
+
+.reveal table th {
+  background-color: $aperi-red;
+  color: $aperi-background;
+  padding: 0.5em 1em;
+  font-weight: 600;
+}
+
+.reveal table td {
+  padding: 0.4em 1em;
+  border-bottom: 1px solid $aperi-gray;
+}
+
+.reveal table tr:nth-child(even) {
+  background-color: rgba($aperi-gray, 0.1);
+}
+
+// Code blocks
+.reveal pre {
+  background-color: #f5f5f5;
+  border-left: 4px solid $aperi-red;
+  padding: 1em;
+  font-size: 0.7em;
+}
+
+.reveal code {
+  background-color: rgba($aperi-gray, 0.2);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+// Blockquotes
+.reveal blockquote {
+  border-left: 4px solid $aperi-red;
+  padding-left: 1em;
+  font-style: italic;
+  color: $aperi-text-light;
+  background: rgba($aperi-gray, 0.1);
+  padding: 0.5em 1em;
+}
+
+// Slide number styling
+.reveal .slide-number {
+  color: $aperi-gray;
+  font-size: 14px;
+}
+
+// Progress bar
+.reveal .progress {
+  background: rgba($aperi-gray, 0.2);
+  color: $aperi-red;
+}
+
+// Speaker notes indicator
+.reveal .speaker-notes-indicator {
+  color: $aperi-gray;
+}
+
+// Logo in corner - slightly larger than default
+.reveal .slide-logo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  max-height: 80px !important;
+  width: auto !important;
+  height: auto;
+  opacity: 0.9;
+}

@@ -1,0 +1,86 @@
+{
+  "ad8a2e93dba3480e": {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "system": "You are the geometry agent. Build the requested part in the CAD engine.\nReply with Cubit journal commands only, no commentary.\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Create a rectangular bar 10mm x 2mm x 2mm. The bar extends from x=0 to x=10mm."
+      }
+    ],
+    "response": "create brick x_interval 0 10 y_interval -1 1 z_interval -1 1"
+  },
+  "d71fcd8d27087b23": {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "system": "You are the solver setup agent. Write the material and loading values for the\ninput deck, using the shared analysis state you are given.\n\nReturn JSON only:\n{\"youngs_modulus\": <number>, \"poisson\": <number>, \"traction\": <number>}\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Shared analysis state:\n  geometry: volume_1 (bar), meshed, 40 hex elements\n  named surfaces: fixed_end, load_face\n\nWrite the material and loading values. Fix the end at x=0, apply 100 MPa tension at the x=10 face. Material: steel, E=200 GPa, nu=0.3."
+      }
+    ],
+    "response": "```json\n{\n  \"youngs_modulus\": 200000000000,\n  \"poisson\": 0.3,\n  \"traction\": 100000000\n}\n```"
+  },
+  "184396407bad8cab": {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "system": "You are the solver setup agent. Write the material and loading values for the\ninput deck, using the shared analysis state you are given.\n\nReturn JSON only:\n{\"youngs_modulus\": <number>, \"poisson\": <number>, \"traction\": <number>}\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Shared analysis state:\n  geometry: volume_1 (bar), meshed, 40 hex elements\n  bounding box: (0, -1, -1) to (10, 1, 1)\n  named surfaces: fixed_end, load_face\n\nThe analyst's original request: \"Create a rectangular bar 10mm x 2mm x 2mm. The bar extends from x=0 to x=10mm. Write the material and loading values. Fix the end at x=0, apply 100 MPa tension at the x=10 face. Material: steel, E=200 GPa, nu=0.3.\"\n\nNow write the material and loading values for the deck."
+      }
+    ],
+    "response": "```json\n{\n  \"youngs_modulus\": 200000000000,\n  \"poisson\": 0.3,\n  \"traction\": 100000000\n}\n```"
+  },
+  "8ad3cc4707ebb96a": {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "system": "You are the solver setup agent. Write the material and loading values for the\ninput deck, using the shared analysis state you are given.\n\nFirst, in ONE sentence, state which unit system you chose and why. Then return the JSON:\n{\"youngs_modulus\": <number>, \"poisson\": <number>, \"traction\": <number>}\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Shared analysis state:\n  geometry: volume_1 (bar), meshed, 40 hex elements\n  bounding box: (0, -1, -1) to (10, 1, 1)\n  named surfaces: fixed_end, load_face\n\nThe analyst's original request: \"Create a rectangular bar 10mm x 2mm x 2mm. The bar extends from x=0 to x=10mm. Write the material and loading values. Fix the end at x=0, apply 100 MPa tension at the x=10 face. Material: steel, E=200 GPa, nu=0.3.\"\n\nNow write the material and loading values for the deck."
+      }
+    ],
+    "response": "I chose the N-mm-MPa unit system because the geometry is defined in mm and the stress values are given in MPa and GPa, making it a natural and consistent choice.\n\n```json\n{\n  \"youngs_modulus\": 200000,\n  \"poisson\": 0.3,\n  \"traction\": 100\n}\n```"
+  },
+  "40c9ebd01ffe477b": {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "system": "You are the solver setup agent. Write the material and loading values for the\ninput deck, using the shared analysis state you are given.\n\nReturn JSON only:\n{\"youngs_modulus\": <number>, \"poisson\": <number>, \"traction\": <number>}\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Shared analysis state:\n  unit_system: mm-N-MPa\n  geometry: volume_1 (bar), meshed, 40 hex elements\n  named surfaces: fixed_end, load_face\n\nWrite the material and loading values. Fix the end at x=0, apply 100 MPa tension at the x=10 face. Material: steel, E=200 GPa, nu=0.3."
+      }
+    ],
+    "response": "```json\n{\n  \"youngs_modulus\": 200000,\n  \"poisson\": 0.3,\n  \"traction\": 100\n}\n```"
+  },
+  "aded7c35e46c0ed8": {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "system": "You label the numbers in an engineering problem statement.\n\nReturn JSON only, with this shape:\n{\"quantities\": [{\"value\": <number>, \"unit\": <string or null>, \"role\": <string>}]}\n\nUse exactly these roles: density, dimensionless, force, length, modulus, poisson, pressure, stress, thickness, yield_stress\n\nRules:\n- Report every numeric value that appears in the statement.\n- Copy each value and unit exactly as written. Do not convert anything.\n- Poisson's ratio has role \"poisson\" and unit null.\n- If a number's purpose is unclear, use role \"dimensionless\".\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Panel 48 mm wide, 44 mm tall, 1 mm thick. Steel, E = 200 GPa, nu = 0.3, density 7850 kg/m^3. Apply 100 N shear on the right edge."
+      }
+    ],
+    "response": "```json\n{\n  \"quantities\": [\n    {\n      \"value\": 48,\n      \"unit\": \"mm\",\n      \"role\": \"length\"\n    },\n    {\n      \"value\": 44,\n      \"unit\": \"mm\",\n      \"role\": \"length\"\n    },\n    {\n      \"value\": 1,\n      \"unit\": \"mm\",\n      \"role\": \"thickness\"\n    },\n    {\n      \"value\": 200,\n      \"unit\": \"GPa\",\n      \"role\": \"modulus\"\n    },\n    {\n      \"value\": 0.3,\n      \"unit\": null,\n      \"role\": \"poisson\"\n    },\n    {\n      \"value\": 7850,\n      \"unit\": \"kg/m^3\",\n      \"role\": \"density\"\n    },\n    {\n      \"value\": 100,\n      \"unit\": \"N\",\n      \"role\": \"force\"\n    }\n  ]\n}\n```"
+  },
+  "7f8de735ede69260": {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "system": "You extract the material and geometry parameters an FEA solver needs from a\nproblem statement.\n\nReturn JSON only:\n{\"quantities\": [{\"value\": <number>, \"unit\": <string or null>, \"role\": <string>}]}\n\nRoles: density, dimensionless, force, length, modulus, poisson, pressure, stress, thickness, yield_stress\nMake sure the solver has everything it needs to run.\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Steel bar, 10 mm long, under 100 MPa applied stress."
+      }
+    ],
+    "response": "```json\n{\n  \"quantities\": [\n    {\n      \"value\": 10,\n      \"unit\": \"mm\",\n      \"role\": \"length\"\n    },\n    {\n      \"value\": 100,\n      \"unit\": \"MPa\",\n      \"role\": \"stress\"\n    },\n    {\n      \"value\": 200,\n      \"unit\": \"GPa\",\n      \"role\": \"modulus\"\n    },\n    {\n      \"value\": 0.3,\n      \"unit\": null,\n      \"role\": \"poisson\"\n    },\n    {\n      \"value\": 7850,\n      \"unit\": \"kg/m^3\",\n      \"role\": \"density\"\n    },\n    {\n      \"value\": 250,\n      \"unit\": \"MPa\",\n      \"role\": \"yield_stress\"\n    }\n  ]\n}\n```"
+  }
+}

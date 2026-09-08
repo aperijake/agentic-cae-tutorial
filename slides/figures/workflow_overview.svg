@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 900 347.71429"
+   version="1.1"
+   id="svg21"
+   sodipodi:docname="workflow_overview.svg"
+   width="900"
+   height="347.71429"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview21"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.1666667"
+     inkscape:cx="435"
+     inkscape:cy="272.57143"
+     inkscape:window-width="1688"
+     inkscape:window-height="955"
+     inkscape:window-x="164"
+     inkscape:window-y="810"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg21" />
+  <defs
+     id="defs2">
+    <!-- Arrowhead marker for forward flow -->
+    <marker
+       id="arrowhead"
+       markerWidth="10"
+       markerHeight="7"
+       refX="9"
+       refY="3.5"
+       orient="auto">
+      <polygon
+         points="10,3.5 0,7 0,0 "
+         fill="#333333"
+         id="polygon1" />
+    </marker>
+    <!-- Arrowhead for feedback loops -->
+    <marker
+       id="arrowhead-feedback"
+       markerWidth="8"
+       markerHeight="6"
+       refX="7"
+       refY="3"
+       orient="auto">
+      <polygon
+         points="8,3 0,6 0,0 "
+         fill="#666666"
+         id="polygon2" />
+    </marker>
+  </defs>
+  <!-- Background -->
+  <rect
+     width="900"
+     height="347.71429"
+     fill="#fafafa"
+     id="rect2"
+     x="0"
+     y="0"
+     style="stroke-width:0.932355" />
+  <!-- Title -->
+  <text
+     x="450"
+     y="35"
+     font-family="Arial, sans-serif"
+     font-size="20px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#333333"
+     id="text2">Finite Element Analysis Workflow</text>
+  <!-- Main workflow boxes -->
+  <!-- 1. Determine Workflow -->
+  <rect
+     x="30"
+     y="140"
+     width="120"
+     height="70"
+     rx="8"
+     fill="#4a7c99"
+     stroke="#3a6c89"
+     stroke-width="2"
+     id="rect3" />
+  <text
+     x="90"
+     y="172"
+     font-family="Arial, sans-serif"
+     font-size="13px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#ffffff"
+     id="text3">Determine</text>
+  <text
+     x="90"
+     y="190"
+     font-family="Arial, sans-serif"
+     font-size="13px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#ffffff"
+     id="text4">Workflow</text>
+  <!-- 2. Preprocess container -->
+  <rect
+     x="200"
+     y="100"
+     width="280"
+     height="150"
+     rx="8"
+     fill="#e8e8e8"
+     stroke="#999999"
+     stroke-width="1"
+     stroke-dasharray="5, 3"
+     id="rect4" />
+  <text
+     x="340"
+     y="125"
+     font-family="Arial, sans-serif"
+     font-size="12px"
+     font-style="italic"
+     text-anchor="middle"
+     fill="#666666"
+     id="text5">Preprocess</text>
+  <!-- 2a. Mesh -->
+  <rect
+     x="220"
+     y="140"
+     width="110"
+     height="70"
+     rx="6"
+     fill="#5a9a7a"
+     stroke="#4a8a6a"
+     stroke-width="2"
+     id="rect5" />
+  <text
+     x="275"
+     y="180"
+     font-family="Arial, sans-serif"
+     font-size="13px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#ffffff"
+     id="text6">Mesh</text>
+  <!-- 2b. Input Parameters -->
+  <rect
+     x="350"
+     y="140"
+     width="110"
+     height="70"
+     rx="6"
+     fill="#5a9a7a"
+     stroke="#4a8a6a"
+     stroke-width="2"
+     id="rect6" />
+  <text
+     x="405"
+     y="172"
+     font-family="Arial, sans-serif"
+     font-size="13px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#ffffff"
+     id="text7">Input</text>
+  <text
+     x="405"
+     y="190"
+     font-family="Arial, sans-serif"
+     font-size="13px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#ffffff"
+     id="text8">Parameters</text>
+  <!-- 3. Solve -->
+  <rect
+     x="530"
+     y="140"
+     width="120"
+     height="70"
+     rx="8"
+     fill="#cc8844"
+     stroke="#bc7834"
+     stroke-width="2"
+     id="rect8" />
+  <text
+     x="590"
+     y="180"
+     font-family="Arial, sans-serif"
+     font-size="13px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#ffffff"
+     id="text9">Solve</text>
+  <!-- 4. Post-Process -->
+  <rect
+     x="700"
+     y="140"
+     width="120"
+     height="70"
+     rx="8"
+     fill="#8866aa"
+     stroke="#7756aa"
+     stroke-width="2"
+     id="rect9" />
+  <text
+     x="760"
+     y="172"
+     font-family="Arial, sans-serif"
+     font-size="13px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#ffffff"
+     id="text10">Post-</text>
+  <text
+     x="760"
+     y="190"
+     font-family="Arial, sans-serif"
+     font-size="13px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#ffffff"
+     id="text11">Process</text>
+  <!-- Forward flow arrows -->
+  <line
+     x1="150"
+     y1="175"
+     x2="195"
+     y2="175"
+     stroke="#333333"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="line11" />
+  <line
+     x1="334"
+     y1="175"
+     x2="349"
+     y2="175"
+     stroke="#333333"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="line12" />
+  <line
+     x1="485"
+     y1="175"
+     x2="525"
+     y2="175"
+     stroke="#333333"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="line13" />
+  <line
+     x1="650"
+     y1="175"
+     x2="695"
+     y2="175"
+     stroke="#333333"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="line14" />
+  <!-- Feedback loops -->
+  <!-- Post-Process back to Mesh (top arc) -->
+  <path
+     d="M 760,140 C 760,86.666667 673.33333,68.571429 500,68.571429 350,68.571429 275,85 275,135"
+     fill="none"
+     stroke="#666666"
+     stroke-width="1.5"
+     stroke-dasharray="6, 3"
+     marker-end="url(#arrowhead-feedback)"
+     id="path14"
+     sodipodi:nodetypes="csc" />
+  <text
+     x="510.28571"
+     y="65.821274"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#666666"
+     id="text14">Refine mesh based on results</text>
+  <!-- Post-Process back to Input Parameters (middle arc) -->
+  <path
+     d="M 700,165 Q 620,90 460,138"
+     fill="none"
+     stroke="#666666"
+     stroke-width="1.5"
+     stroke-dasharray="6, 3"
+     marker-end="url(#arrowhead-feedback)"
+     id="path15" />
+  <text
+     x="580"
+     y="108"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#666666"
+     id="text15">Adjust parameters</text>
+  <!-- Solve back to Input Parameters (short feedback) -->
+  <path
+     d="M 571.14286,210 C 551.63019,248.1842 430.39741,250 405,210"
+     fill="none"
+     stroke="#666666"
+     stroke-width="1.5"
+     stroke-dasharray="6, 3"
+     marker-end="url(#arrowhead-feedback)"
+     id="path16"
+     sodipodi:nodetypes="cc" />
+  <text
+     x="517.53107"
+     y="248.1842"
+     font-family="Arial, sans-serif"
+     font-size="9px"
+     text-anchor="middle"
+     fill="#666666"
+     id="text16">Troubleshoot</text>
+  <!-- Solve back to Mesh (bottom arc) -->
+  <path
+     d="m 623.42857,210 c 0,46.66667 -116.7619,70 -223.42857,70 -83.33333,0 -125,-21.66667 -125,-65"
+     fill="none"
+     stroke="#666666"
+     stroke-width="1.5"
+     stroke-dasharray="6, 3"
+     marker-end="url(#arrowhead-feedback)"
+     id="path17"
+     sodipodi:nodetypes="csc" />
+  <text
+     x="400"
+     y="300"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#666666"
+     id="text17">Fix mesh quality issues</text>
+  <!-- Post-Process back to Determine Workflow (full loop, bottom) -->
+  <path
+     d="M 760,210 C 760,296.66667 642.57143,314.19048 402.57143,320.85714 195.90476,320.85714 90,305 90,215"
+     fill="none"
+     stroke="#666666"
+     stroke-width="1.5"
+     stroke-dasharray="6, 3"
+     marker-end="url(#arrowhead-feedback)"
+     id="path18"
+     sodipodi:nodetypes="ccc" />
+  <text
+     x="404.85715"
+     y="334.88705"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#666666"
+     id="text18">Revise approach based on findings</text>
+  <!-- Legend -->
+  <rect
+     x="728.87549"
+     y="273.63757"
+     width="145.21812"
+     height="70.075264"
+     rx="3.4168968"
+     fill="#ffffff"
+     stroke="#cccccc"
+     stroke-width="0.924739"
+     id="rect18" />
+  <text
+     x="741.25"
+     y="291.10678"
+     font-family="Arial, sans-serif"
+     font-size="11px"
+     font-weight="bold"
+     fill="#333333"
+     id="text19">Legend</text>
+  <line
+     x1="741.25"
+     y1="306.10678"
+     x2="771.25"
+     y2="306.10678"
+     stroke="#333333"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="line19" />
+  <text
+     x="781.25"
+     y="310.10678"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     fill="#333333"
+     id="text20">Primary flow</text>
+  <line
+     x1="741.25"
+     y1="326.10678"
+     x2="771.25"
+     y2="326.10678"
+     stroke="#666666"
+     stroke-width="1.5"
+     stroke-dasharray="6, 3"
+     marker-end="url(#arrowhead-feedback)"
+     id="line20" />
+  <text
+     x="781.25"
+     y="330.10678"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     fill="#333333"
+     id="text21">Iteration / feedback</text>
+</svg>

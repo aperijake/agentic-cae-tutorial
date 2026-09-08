@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.venv/
+*.msh
+*.vtu
+results.json
+.pytest_cache/
+*.egg-info/
+.vscode/
+snapshot.png
+slides/talk.html
+slides/talk_files/
+slides/.quarto/
+snapshot_after.png

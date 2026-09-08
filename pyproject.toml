@@ -1,0 +1,28 @@
+[project]
+name = "agentic-cae-tutorial"
+version = "0.1.0"
+description = "Hands-on tutorial: agentic workflows for computational mechanics (USACM AESCAPE 2026 short course)"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "openai",
+]
+
+# gmsh and meshio drive the optional tet10 path in extras/; mcp is only needed
+# for the MCP server exercise. The Cook's membrane material -- mesher, hex8,
+# B-bar, tet4, plots -- runs on the core list above.
+[project.optional-dependencies]
+extras = ["gmsh", "meshio", "mcp"]
+dev = ["pytest"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["minifea", "tet10"]
+
+[tool.setuptools.package-dir]
+tet10 = "extras/tet10"
