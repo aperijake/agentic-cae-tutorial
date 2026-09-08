@@ -221,6 +221,7 @@ def main():
     print(f"\nnamed a spurious pattern in {count} of {runs} (keyword scan; read the answers)")
 
     # Step 4: offer the formulations we have, run the one it picks, ask again.
+    input("\nNext: offer it full and bbar and ask it to pick. Press Enter. ")
     print("\n== choose ==")
     print("  given: " + CHOICE)
     picked, answer = choose_formulation(png)
@@ -230,6 +231,7 @@ def main():
     elif picked == FORMULATION:
         print(f"  same as the current run ({FORMULATION}); nothing to change")
     else:
+        input(f"\nNext: rerun with {picked} and show it the new picture. Press Enter. ")
         print(f"\n== rerun with {picked} ==")
         png_after, tip_after = snapshot(picked, AVERAGED)
         with open("snapshot_after.png", "wb") as f:
@@ -241,6 +243,7 @@ def main():
         print(f"  named a spurious pattern: {'yes' if flagged(answer_after) else 'no'}")
 
     # Step 5: a theory question, no picture. The same text call as step 1.
+    input("\nLast: ask it whether B-bar hex8 is inf-sup stable. Press Enter. ")
     print("\n== one more question ==")
     print("  given: " + THEORY)
     print("  model: " + ask(REVIEWER, THEORY).replace("\n", "\n  "))
